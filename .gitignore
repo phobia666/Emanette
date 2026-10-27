@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# environment files (these hold your DB password and admin key)
+.env
+.env.*
+!.env.example
+
+# build output
+dist/
+build/
+
+# logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor files
+.vscode/
+.idea/
