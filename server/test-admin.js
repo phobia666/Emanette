@@ -6,6 +6,7 @@ const admin = io('http://localhost:4000');
 let phase = 'lobby';
 
 admin.on('lobby:update', (d) => console.log('players:', d.players.join(', ')));
+admin.on('session:countdown', (d) => { phase = 'countdown'; console.log('COUNTDOWN startsAt:', d.startsAt); });
 admin.on('answers:count', (d) => console.log(`answered ${d.answered}/${d.total}`));
 admin.on('question:show', (q) => { phase = 'question'; console.log(`\nQ${q.index + 1}: ${q.text}`); });
 admin.on('question:result', (r) => {

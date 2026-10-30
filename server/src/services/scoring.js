@@ -11,10 +11,9 @@ export function isCorrect(q, answer) {
   const right = [...q.correct].map(Number).sort((x, y) => x - y);
   return given.length === right.length && given.every((v, i) => v === right[i]);
 }
-    
-// 50% of the points for being correct, up to 50% more for speed
-export function calcPoints(q, correct, responseMs, limitMs) {
+
+// Flat scoring: calcPoints returns q.points when correct, else 0
+export function calcPoints(q, correct) {
   if (!correct) return 0;
-  const remaining = Math.max(0, limitMs - responseMs) / limitMs;
-  return Math.round(q.points * (0.5 + 0.5 * remaining));
+  return q.points;
 }

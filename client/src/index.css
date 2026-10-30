@@ -1,1 +1,54 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0B7C68;
+  --color-primary-dark: #096655;
+  --color-mint: #26BA9A;
+  --color-mint-light: #6DD5BE;
+  --color-big-num: #0F9579;
+  --color-heading: #0E201A;
+  --color-body: #3F534D;
+  --color-border-subtle: #7B968F;
+  --color-opt-selected-bg: #E2F3ED;
+  --color-opt-selected-border: #32907E;
+  --color-chip-normal: #EEF4F2;
+  --color-progress-empty: #C9DAD4;
+  --color-bar-unselected: #CFE0DA;
+  --color-tag-bg: #E3F3ED;
+  
+  --font-sans: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html, body {
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #3F534D;
+  background: linear-gradient(135deg, #F8FAF9 0%, #E7F0ED 100%);
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+.wavy-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #26BA9A;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2.5px;
+}
+
+/* Custom pulse animation for countdown/lobby */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s ease-in-out infinite;
+}

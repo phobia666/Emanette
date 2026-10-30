@@ -14,9 +14,9 @@ export function registerSockets(io) {
   engine.init(io);
 
   io.on('connection', (socket) => {
-    socket.on('player:join', handle(async ({ code, name, playerId }) => {
+    socket.on('player:join', handle(async ({ code, name, participantId, contact, playerId }) => {
       code = String(code).toUpperCase();
-      const p = await engine.joinPlayer(code, name, playerId);
+      const p = await engine.joinPlayer(code, { name, participantId, contact, playerId });
       socket.data = { code, playerId: p.id, role: 'player' };
       socket.join(`s:${code}`);
       socket.join(`p:${p.id}`);
